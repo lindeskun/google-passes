@@ -83,6 +83,27 @@ class GoogleRestClient
         return $response;
     }
 
+    public function getLoyaltyObject($objectId){
+        $response = null;
+
+        $loyaltyResource = $this->resourcesFactory->makeLoyaltyObjectResource();
+
+        try {
+            $response = $loyaltyResource->get($objectId);
+            $response["code"] = 200;
+        } catch (\Google_Service_Exception $gException)  {
+            $response = $gException->getErrors();
+            $response["code"] = $gException->getCode();
+            echo("\n>>>> [START] Google Server Error response:");
+            var_dump($response);
+            echo("\n>>>> [END] Google Server Error response\n");
+        } catch (\Exception $e){
+            var_dump($e->getMessage());
+        }
+
+        return $response;
+    }
+
     public function insertLoyaltyObject(LoyaltyObject $loyaltyObject){
         $response = null;
 
