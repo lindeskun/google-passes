@@ -1,6 +1,6 @@
 {
   "name": "lindeskun/google-passes",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "PHP library for Google Pay Passes",
   "license": "MIT",
   "authors": [

@@ -52,9 +52,6 @@ class GoogleRestClient
         } catch (\Google_Service_Exception $gException)  {
             $response = $gException->getErrors();
             $response["code"] = $gException->getCode();
-            echo("\n>>>> [START] Google Server Error response:");
-            var_dump($response);
-            echo("\n>>>> [END] Google Server Error response\n");
         } catch (\Exception $e){
             var_dump($e->getMessage());
         }
@@ -73,9 +70,6 @@ class GoogleRestClient
         } catch (\Google_Service_Exception $gException)  {
             $response = $gException->getErrors();
             $response["code"] = $gException->getCode();
-            echo("\n>>>> [START] Google Server Error response:");
-            var_dump($response);
-            echo("\n>>>> [END] Google Server Error response\n");
         } catch (\Exception $e){
             var_dump($e->getMessage());
         }
@@ -94,9 +88,6 @@ class GoogleRestClient
         } catch (\Google_Service_Exception $gException)  {
             $response = $gException->getErrors();
             $response["code"] = $gException->getCode();
-            echo("\n>>>> [START] Google Server Error response:");
-            var_dump($response);
-            echo("\n>>>> [END] Google Server Error response\n");
         } catch (\Exception $e){
             var_dump($e->getMessage());
         }
@@ -115,9 +106,6 @@ class GoogleRestClient
         } catch (\Google_Service_Exception $gException)  {
             $response = $gException->getErrors();
             $response["code"] = $gException->getCode();
-            echo("\n>>>> [START] Google Server Error response:");
-            var_dump($response);
-            echo("\n>>>> [END] Google Server Error response\n");
         } catch (\Exception $e){
             var_dump($e->getMessage());
         }
