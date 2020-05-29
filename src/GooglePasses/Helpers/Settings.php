@@ -28,7 +28,7 @@ class Settings
     private $classId;
     private $objectId;
 
-    public function __construct($type, $classId, $objectId)
+    public function __construct($issuerId, $type, $classId, $objectId)
     {
         if (!in_array($type, array_keys(self::$typesMap), true)) {
             throw new InvalidArgumentException('Invalid pass type');
@@ -38,19 +38,21 @@ class Settings
         $this->objectId = $objectId;
     }
 
-    public static function makeClassId($type, array $metadata)
+    public static function makeClassId($issuerId, $type, array $metadata)
     {
-        $metadata += [
-            'type' => self::getTypeAsString($type),
-            'entity' => 'class',
-        ];
-        return hash('sha256', json_encode($metadata));
+        return sprintf("%s.%s" , $issuerId, self::makeUid('class', $type, $metadata));
     }
-    public static function makeObjectId($type, array $metadata)
+
+    public static function makeObjectId($issuerId, $type, array $metadata)
+    {
+        return sprintf("%s.%s" , $issuerId, self::makeUid('object', $type, $metadata));
+    }
+
+    protected static function makeUid($entity, $type, array $metadata)
     {
         $metadata += [
             'type' => self::getTypeAsString($type),
-            'entity' => 'object',
+            'entity' => $entity,
         ];
         return hash('sha256', json_encode($metadata));
     }
