@@ -8,9 +8,17 @@ use GooglePasses\WalletObjects\Collections\LocalizedString;
 class AppLinkInfo extends Google_Model
 {
     protected $appLogoImage;
+    protected $appLogoImageType = Image::class;
+    protected $appLogoImageDataType = '';
     protected $appTarget;
+    protected $appTargetType = AppTarget::class;
+    protected $appTargetDataType = '';
     protected $description;
+    protected $descriptionType = LocalizedString::class;
+    protected $descriptionDataType = '';
     protected $title;
+    protected $titleType = LocalizedString::class;
+    protected $titleDataType = '';
 
     public function setAppLogoImage(Image $appLogoImage)
     {

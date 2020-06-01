@@ -5,25 +5,20 @@ namespace GooglePasses\WalletObjects\Models;
 use Google_Model;
 use GooglePasses\WalletObjects\Collections\LocalizedString;
 
-class LoyaltyPoints extends Google_Model
+class LabelValue extends Google_Model
 {
     protected $label;
+
     protected $localizedLabel;
     protected $localizedLabelType = LocalizedString::class;
     protected $localizedLabelDataType = '';
 
-    protected $balance;
-    protected $balanceType = LoyaltyPointsBalance::class;
-    protected $balanceDataType = '';
+    protected $localizedValue;
+    protected $localizedValueType = LocalizedString::class;
+    protected $localizedValueDataType = '';
 
-    public function setBalance(LoyaltyPointsBalance $balance)
-    {
-        $this->balance = $balance;
-    }
-    public function getBalance()
-    {
-        return $this->balance;
-    }
+    protected $value;
+
     public function setLabel($label)
     {
         $this->label = $label;
@@ -39,5 +34,21 @@ class LoyaltyPoints extends Google_Model
     public function getLocalizedLabel()
     {
         return $this->localizedLabel;
+    }
+    public function setLocalizedValue(LocalizedString $localizedValue)
+    {
+        $this->localizedValue = $localizedValue;
+    }
+    public function getLocalizedValue()
+    {
+        return $this->localizedValue;
+    }
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
+    public function getValue()
+    {
+        return $this->value;
     }
 }

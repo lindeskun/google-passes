@@ -10,6 +10,9 @@ use GooglePasses\WalletObjects\Models\CallbackOptions;
 use GooglePasses\WalletObjects\Models\ClassTemplateInfo;
 use GooglePasses\WalletObjects\Models\DiscoverableProgram;
 use GooglePasses\WalletObjects\Models\Image;
+use GooglePasses\WalletObjects\Models\ImageModuleData;
+use GooglePasses\WalletObjects\Models\LatLongPoint;
+use GooglePasses\WalletObjects\Models\Message;
 use GooglePasses\WalletObjects\Models\Review;
 use GooglePasses\WalletObjects\Models\Uri;
 
@@ -32,69 +35,95 @@ class LoyaltyClass extends AbstractClass
     protected $secondaryRewardsTier;
     protected $secondaryRewardsTierLabel;
     protected $version;
+
     protected $callbackOptions;
+    protected $callbackOptionsType = CallbackOptions::class;
+    protected $callbackOptionsDataType = '';
+
     protected $classTemplateInfo;
-    /**
-     * @var Image
-     */
+    protected $classTemplateInfoType = ClassTemplateInfo::class;
+    protected $classTemplateInfoDataType = '';
+
     protected $heroImage;
-    /**
-     * @var Uri
-     */
+    protected $heroImageType = Image::class;
+    protected $heroImageDataType = '';
+
     protected $homepageUri;
+    protected $homepageUriType = Uri::class;
+    protected $homepageUriDataType = '';
+
     protected $imageModulesData;
+    protected $imageModulesDataType = ImageModuleData::class;
+    protected $imageModulesDataDataType = 'array';
+
     protected $discoverableProgram;
-    /**
-     * @var InfoModuleData
-     */
+    protected $discoverableProgramType = DiscoverableProgram::class;
+    protected $discoverableProgramDataType = '';
+
     protected $infoModuleData;
+    protected $infoModuleDataType = InfoModuleData::class;
+    protected $infoModuleDataDataType = '';
+
     protected $wordMark;
+    protected $wordMarkType = Image::class;
+    protected $wordMarkDataType = '';
+
     protected $textModulesData;
-    /**
-     * @var Review
-     */
+//    protected $textModulesDataType = TextModuleData::class;
+    protected $textModulesDataDataType = 'array';
+
     protected $review;
+    protected $reviewType = Review::class;
+    protected $reviewDataType = '';
+
     protected $programLogo;
-    /**
-     * @var LinksModuleData|mixed|null
-     */
+    protected $programLogoType = Image::class;
+    protected $programLogoDataType = '';
+
     protected $linksModuleData;
-    /**
-     * @var LocalizedString|mixed|null
-     */
+    protected $linksModuleDataType = LinksModuleData::class;
+    protected $linksModuleDataDataType = '';
+
     protected $localizedAccountIdLabel;
-    /**
-     * @var LocalizedString|mixed|null
-     */
+    protected $localizedAccountIdLabelType = LocalizedString::class;
+    protected $localizedAccountIdLabelDataType = '';
+
+
     protected $localizedAccountNameLabel;
-    /**
-     * @var mixed|null
-     */
+    protected $localizedAccountNameLabelType = LocalizedString::class;
+    protected $localizedAccountNameLabelDataType = '';
+
+    protected $localizedIssuerName;
+    protected $localizedIssuerNameType = LocalizedString::class;
+    protected $localizedIssuerNameDataType = '';
+
     protected $localizedProgramName;
-    /**
-     * @var LocalizedString|mixed|null
-     */
+    protected $localizedProgramNameType = LocalizedString::class;
+    protected $localizedProgramNameDataType = '';
+
     protected $localizedRewardsTier;
-    /**
-     * @var LocalizedString|mixed|null
-     */
+    protected $localizedRewardsTierType = LocalizedString::class;
+    protected $localizedRewardsTierDataType = '';
+
     protected $localizedRewardsTierLabel;
-    /**
-     * @var LocalizedString|mixed|null
-     */
+    protected $localizedRewardsTierLabelType = LocalizedString::class;
+    protected $localizedRewardsTierLabelDataType = '';
+
     protected $localizedSecondaryRewardsTier;
-    /**
-     * @var LocalizedString|mixed|null
-     */
+    protected $localizedSecondaryRewardsTierType = LocalizedString::class;
+    protected $localizedSecondaryRewardsTierDataType = '';
+
     protected $localizedSecondaryRewardsTierLabel;
-    /**
-     * @var mixed|null
-     */
+    protected $localizedSecondaryRewardsTierLabelType = LocalizedString::class;
+    protected $localizedSecondaryRewardsTierLabelDataType = '';
+
     protected $locations;
-    /**
-     * @var mixed|null
-     */
+    protected $locationsType = LatLongPoint::class;
+    protected $locationsDataType = 'array';
+
     protected $messages;
+    protected $messagesType = Message::class;
+    protected $messagesDataType = 'array';
 
 
     public function setAccountIdLabel($accountIdLabel)
@@ -185,7 +214,7 @@ class LoyaltyClass extends AbstractClass
     {
         return $this->homepageUri;
     }
-    public function setImageModulesData($imageModulesData)
+    public function setImageModulesData(ImageModuleData $imageModulesData)
     {
         $this->imageModulesData = $imageModulesData;
     }

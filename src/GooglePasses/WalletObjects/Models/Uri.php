@@ -11,6 +11,8 @@ class Uri extends \Google_Model
     protected $kind;
     protected $uri;
     protected $localizedDescription;
+    protected $localizedDescriptionType = LocalizedString::class;
+    protected $localizedDescriptionDataType = '';
 
     public function setDescription($description)
     {

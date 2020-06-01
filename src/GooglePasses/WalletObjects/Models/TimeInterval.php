@@ -7,8 +7,14 @@ use Google_Model;
 class TimeInterval extends Google_Model
 {
     protected $kind;
+
     protected $end;
+    protected $endType = DateTime::class;
+    protected $endDataType = '';
+
     protected $start;
+    protected $startType = DateTime::class;
+    protected $startDataType = '';
 
     public function setEnd(DateTime $end)
     {

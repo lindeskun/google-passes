@@ -11,6 +11,8 @@ class ImageUri extends \Google_Model
     protected $description;
     protected $uri;
     protected $localizedDescription;
+    protected $localizedDescriptionType = LocalizedString::class;
+    protected $localizedDescriptionDataType = '';
 
     public function setDescription($description)
     {

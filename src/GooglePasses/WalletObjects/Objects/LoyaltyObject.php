@@ -8,7 +8,11 @@ use GooglePasses\WalletObjects\Collections\InfoModuleData;
 use GooglePasses\WalletObjects\Collections\LinksModuleData;
 use GooglePasses\WalletObjects\Models\AppLinkData;
 use GooglePasses\WalletObjects\Models\Barcode;
+use GooglePasses\WalletObjects\Models\ImageModuleData;
+use GooglePasses\WalletObjects\Models\LatLongPoint;
 use GooglePasses\WalletObjects\Models\LoyaltyPoints;
+use GooglePasses\WalletObjects\Models\Message;
+use GooglePasses\WalletObjects\Models\TextModuleData;
 use GooglePasses\WalletObjects\Models\TimeInterval;
 
 class LoyaltyObject extends Google_Collection
@@ -27,17 +31,53 @@ class LoyaltyObject extends Google_Collection
     protected $state;
     protected $version;
     protected $classReference;
+    protected $classReferenceType = LoyaltyClass::class;
+    protected $classReferenceDataType = '';
+
     protected $appLinkData;
+    protected $appLinkDataType = AppLinkData::class;
+    protected $appLinkDataDataType = '';
+
     protected $barcode;
+    protected $barcodeType = Barcode::class;
+    protected $barcodeDataType = '';
+
     protected $imageModulesData;
+    protected $imageModulesDataType = ImageModuleData::class;
+    protected $imageModulesDataDataType = 'array';
+
     protected $infoModuleData;
+    protected $infoModuleDataType = InfoModuleData::class;
+    protected $infoModuleDataDataType = '';
+
     protected $validTimeInterval;
+    protected $validTimeIntervalType = TimeInterval::class;
+    protected $validTimeIntervalDataType = '';
+
     protected $textModulesData;
+    protected $textModulesDataType = TextModuleData::class;
+    protected $textModulesDataDataType = 'array';
+
     protected $secondaryLoyaltyPoints;
+    protected $secondaryLoyaltyPointsType = LoyaltyPoints::class;
+    protected $secondaryLoyaltyPointsDataType = '';
+
     protected $locations;
+
     protected $linksModuleData;
+    protected $linksModuleDataType = LinksModuleData::class;
+    protected $linksModuleDataDataType = '';
+
     protected $messages;
+    protected $messagesType = Message::class;
+    protected $messagesDataType = 'array';
+
     protected $loyaltyPoints;
+    protected $loyaltyPointsType = LoyaltyPoints::class;
+    protected $loyaltyPointsDataType = '';
+
+    protected $locationsType = LatLongPoint::class;
+    protected $locationsDataType = 'array';
 
     public function setAccountId($accountId)
     {

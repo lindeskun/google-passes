@@ -6,6 +6,8 @@ class Image extends \Google_Model
 {
     protected $kind;
     protected $sourceUri;
+    protected $sourceUriType = ImageUri::class;
+    protected $sourceUriDataType = '';
 
 
     public function setKind($kind)

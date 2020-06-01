@@ -7,8 +7,14 @@ use Google_Model;
 class AppLinkData extends Google_Model
 {
     protected $androidAppLinkInfo;
+    protected $androidAppLinkInfoType = AppLinkInfo::class;
+    protected $androidAppLinkInfoDataType = '';
     protected $iosAppLinkInfo;
+    protected $iosAppLinkInfoType = AppLinkInfo::class;
+    protected $iosAppLinkInfoDataType = '';
     protected $webAppLinkInfo;
+    protected $webAppLinkInfoType = AppLinkInfo::class;
+    protected $webAppLinkInfoDataType = '';
 
     public function setAndroidAppLinkInfo(AppLinkInfo $androidAppLinkInfo)
     {

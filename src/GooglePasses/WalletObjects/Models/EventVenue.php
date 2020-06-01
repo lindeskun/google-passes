@@ -8,7 +8,11 @@ class EventVenue extends \Google_Model
 {
     protected $kind;
     protected $address;
+    protected $addressType = LocalizedString::class;
+    protected $addressDataType = '';
     protected $name;
+    protected $nameType = LocalizedString::class;
+    protected $nameDataType = '';
 
     public function setAddress(LocalizedString $address)
     {

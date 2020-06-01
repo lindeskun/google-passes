@@ -9,7 +9,11 @@ class LocalizedString extends \Google_Collection
     protected $collection_key = 'translatedValues';
     protected $kind;
     protected $defaultValue;
+    protected $defaultValueType = TranslatedString::class;
+    protected $defaultValueDataType = '';
     protected $translatedValues;
+    protected $translatedValuesType = TranslatedString::class;
+    protected $translatedValuesDataType = 'array';
 
     public function setDefaultValue(TranslatedString $defaultValue)
     {

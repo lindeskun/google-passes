@@ -12,6 +12,8 @@ class EventDateTime extends \Google_Model
     protected $kind;
     protected $start;
     protected $customDoorsOpenLabel;
+    protected $customDoorsOpenLabelType = LocalizedString::class;
+    protected $customDoorsOpenLabelDataType = '';
 
 
     public function setCustomDoorsOpenLabel(LocalizedString $customDoorsOpenLabel)

@@ -9,6 +9,8 @@ class DiscoverableProgramMerchantSignupInfo extends \Google_Collection
     protected $collection_key = 'signupSharedDatas';
     protected $signupSharedDatas;
     protected $signupWebsite;
+    protected $signupWebsiteType = Uri::class;
+    protected $signupWebsiteDataType = '';
 
     public function setSignupSharedDatas($signupSharedDatas)
     {

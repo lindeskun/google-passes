@@ -10,6 +10,8 @@ class FirstRowOption extends \Google_Model
 {
     protected $transitOption;
     protected $fieldOption;
+    protected $fieldOptionType = FieldSelector::class;
+    protected $fieldOptionDataType = '';
 
     public function setFieldOption(FieldSelector $fieldOption)
     {
