@@ -415,7 +415,7 @@ class LoyaltyClass extends AbstractClass
     {
         return $this->secondaryRewardsTierLabel;
     }
-    public function setTextModulesData(TextModuleData $textModulesData)
+    public function setTextModulesData($textModulesData)
     {
         $this->textModulesData = $textModulesData;
     }
