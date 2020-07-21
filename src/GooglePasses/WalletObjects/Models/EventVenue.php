@@ -7,10 +7,10 @@ use GooglePasses\WalletObjects\Collections\LocalizedString;
 class EventVenue extends \Google_Model
 {
     public $kind;
-    protected $address;
+    public $address;
     protected $addressType = LocalizedString::class;
     protected $addressDataType = '';
-    protected $name;
+    public $name;
     protected $nameType = LocalizedString::class;
     protected $nameDataType = '';
 

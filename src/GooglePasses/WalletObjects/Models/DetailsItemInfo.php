@@ -6,7 +6,7 @@ use Google_Model;
 
 class DetailsItemInfo extends Google_Model
 {
-    protected $item;
+    public $item;
     protected $itemType = TemplateItem::class;
     protected $itemDataType = '';
 

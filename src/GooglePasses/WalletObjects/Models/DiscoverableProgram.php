@@ -8,11 +8,11 @@ class DiscoverableProgram extends \Google_Model
 {
     public $state;
 
-    protected $merchantSignupInfo;
+    public $merchantSignupInfo;
     protected $merchantSignupInfoType = DiscoverableProgramMerchantSignupInfo::class;
     protected $merchantSignupInfoDataType = '';
 
-    protected $merchantSigninInfo;
+    public $merchantSigninInfo;
     protected $merchantSigninInfoType = DiscoverableProgramMerchantSigninInfo::class;
     protected $merchantSigninInfoDataType = '';
 

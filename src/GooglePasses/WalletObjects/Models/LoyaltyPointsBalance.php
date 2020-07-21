@@ -10,7 +10,7 @@ class LoyaltyPointsBalance extends Google_Model
     public $double;
     public $int;
     public $string;
-    protected $money;
+    public $money;
     protected $moneyType = Money::class;
     protected $moneyDataType = '';
 

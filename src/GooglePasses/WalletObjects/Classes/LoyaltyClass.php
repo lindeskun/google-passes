@@ -37,92 +37,91 @@ class LoyaltyClass extends AbstractClass
     public $secondaryRewardsTierLabel;
     public $version;
 
-    protected $callbackOptions;
+    public $callbackOptions;
     protected $callbackOptionsType = CallbackOptions::class;
     protected $callbackOptionsDataType = '';
 
-    protected $classTemplateInfo;
+    public $classTemplateInfo;
     protected $classTemplateInfoType = ClassTemplateInfo::class;
     protected $classTemplateInfoDataType = '';
 
-    protected $heroImage;
+    public $heroImage;
     protected $heroImageType = Image::class;
     protected $heroImageDataType = '';
 
-    protected $homepageUri;
+    public $homepageUri;
     protected $homepageUriType = Uri::class;
     protected $homepageUriDataType = '';
 
-    protected $imageModulesData;
+    public $imageModulesData;
     protected $imageModulesDataType = ImageModuleData::class;
     protected $imageModulesDataDataType = 'array';
 
-    protected $discoverableProgram;
+    public $discoverableProgram;
     protected $discoverableProgramType = DiscoverableProgram::class;
     protected $discoverableProgramDataType = '';
 
-    protected $infoModuleData;
+    public $infoModuleData;
     protected $infoModuleDataType = InfoModuleData::class;
     protected $infoModuleDataDataType = '';
 
-    protected $wordMark;
+    public $wordMark;
     protected $wordMarkType = Image::class;
     protected $wordMarkDataType = '';
 
-    protected $textModulesData;
+    public $textModulesData;
     protected $textModulesDataType = TextModuleData::class;
     protected $textModulesDataDataType = 'array';
 
-    protected $review;
+    public $review;
     protected $reviewType = Review::class;
     protected $reviewDataType = '';
 
-    protected $programLogo;
+    public $programLogo;
     protected $programLogoType = Image::class;
     protected $programLogoDataType = '';
 
-    protected $linksModuleData;
+    public $linksModuleData;
     protected $linksModuleDataType = LinksModuleData::class;
     protected $linksModuleDataDataType = '';
 
-    protected $localizedAccountIdLabel;
+    public $localizedAccountIdLabel;
     protected $localizedAccountIdLabelType = LocalizedString::class;
     protected $localizedAccountIdLabelDataType = '';
 
-
-    protected $localizedAccountNameLabel;
+    public $localizedAccountNameLabel;
     protected $localizedAccountNameLabelType = LocalizedString::class;
     protected $localizedAccountNameLabelDataType = '';
 
-    protected $localizedIssuerName;
+    public $localizedIssuerName;
     protected $localizedIssuerNameType = LocalizedString::class;
     protected $localizedIssuerNameDataType = '';
 
-    protected $localizedProgramName;
+    public $localizedProgramName;
     protected $localizedProgramNameType = LocalizedString::class;
     protected $localizedProgramNameDataType = '';
 
-    protected $localizedRewardsTier;
+    public $localizedRewardsTier;
     protected $localizedRewardsTierType = LocalizedString::class;
     protected $localizedRewardsTierDataType = '';
 
-    protected $localizedRewardsTierLabel;
+    public $localizedRewardsTierLabel;
     protected $localizedRewardsTierLabelType = LocalizedString::class;
     protected $localizedRewardsTierLabelDataType = '';
 
-    protected $localizedSecondaryRewardsTier;
+    public $localizedSecondaryRewardsTier;
     protected $localizedSecondaryRewardsTierType = LocalizedString::class;
     protected $localizedSecondaryRewardsTierDataType = '';
 
-    protected $localizedSecondaryRewardsTierLabel;
+    public $localizedSecondaryRewardsTierLabel;
     protected $localizedSecondaryRewardsTierLabelType = LocalizedString::class;
     protected $localizedSecondaryRewardsTierLabelDataType = '';
 
-    protected $locations;
+    public $locations;
     protected $locationsType = LatLongPoint::class;
     protected $locationsDataType = 'array';
 
-    protected $messages;
+    public $messages;
     protected $messagesType = Message::class;
     protected $messagesDataType = 'array';
 

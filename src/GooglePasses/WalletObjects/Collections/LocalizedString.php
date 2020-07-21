@@ -8,10 +8,10 @@ class LocalizedString extends \Google_Collection
 {
     protected $collection_key = 'translatedValues';
     public $kind;
-    protected $defaultValue;
+    public $defaultValue;
     protected $defaultValueType = TranslatedString::class;
     protected $defaultValueDataType = '';
-    protected $translatedValues;
+    public $translatedValues;
     protected $translatedValuesType = TranslatedString::class;
     protected $translatedValuesDataType = 'array';
 

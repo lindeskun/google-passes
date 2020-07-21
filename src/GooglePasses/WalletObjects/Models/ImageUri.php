@@ -10,7 +10,7 @@ class ImageUri extends \Google_Model
 {
     public $description;
     public $uri;
-    protected $localizedDescription;
+    public $localizedDescription;
     protected $localizedDescriptionType = LocalizedString::class;
     protected $localizedDescriptionDataType = '';
 

@@ -6,15 +6,15 @@ namespace GooglePasses\WalletObjects\Models;
 
 class CardBarcodeSectionDetails extends \Google_Model
 {
-    protected $firstBottomDetail;
+    public $firstBottomDetail;
     protected $firstBottomDetailType = BarcodeSectionDetail::class;
     protected $firstBottomDetailDataType = '';
 
-    protected $firstTopDetail;
+    public $firstTopDetail;
     protected $firstTopDetailType = BarcodeSectionDetail::class;
     protected $firstTopDetailDataType = '';
 
-    protected $secondTopDetail;
+    public $secondTopDetail;
     protected $secondTopDetailType = BarcodeSectionDetail::class;
     protected $secondTopDetailDataType = '';
 

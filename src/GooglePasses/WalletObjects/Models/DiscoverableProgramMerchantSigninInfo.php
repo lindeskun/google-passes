@@ -6,7 +6,7 @@ namespace GooglePasses\WalletObjects\Models;
 
 class DiscoverableProgramMerchantSigninInfo extends \Google_Model
 {
-    protected $signinWebsite;
+    public $signinWebsite;
     protected $signinWebsiteType = Uri::class;
     protected $signinWebsiteDataType = '';
 

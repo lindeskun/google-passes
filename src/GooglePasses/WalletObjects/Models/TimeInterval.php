@@ -8,11 +8,11 @@ class TimeInterval extends Google_Model
 {
     public $kind;
 
-    protected $end;
+    public $end;
     protected $endType = DateTime::class;
     protected $endDataType = '';
 
-    protected $start;
+    public $start;
     protected $startType = DateTime::class;
     protected $startDataType = '';
 

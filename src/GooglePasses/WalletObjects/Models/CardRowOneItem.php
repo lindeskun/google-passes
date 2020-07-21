@@ -7,8 +7,7 @@ use Google_Model;
 
 class CardRowOneItem extends Google_Model
 {
-
-    protected $item;
+    public $item;
     protected $itemType = TemplateItem::class;
     protected $itemDataType = '';
 

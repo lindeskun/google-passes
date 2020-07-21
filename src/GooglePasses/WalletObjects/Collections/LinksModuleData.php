@@ -7,7 +7,7 @@ use GooglePasses\WalletObjects\Models\Uri;
 class LinksModuleData extends \Google_Collection
 {
     protected $collection_key = 'uris';
-    protected $uris;
+    public $uris;
     protected $urisType = Uri::class;
     protected $urisDataType = 'array';
 

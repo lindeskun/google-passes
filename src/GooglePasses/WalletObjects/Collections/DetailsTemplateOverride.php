@@ -8,7 +8,7 @@ class DetailsTemplateOverride extends \Google_Collection
 {
     protected $collection_key = 'detailsItemInfos';
 
-    protected $detailsItemInfos;
+    public $detailsItemInfos;
     protected $detailsItemInfosType = DetailsItemInfo::class;
     protected $detailsItemInfosDataType = 'array';
 

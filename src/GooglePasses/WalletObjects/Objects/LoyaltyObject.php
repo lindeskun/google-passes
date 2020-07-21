@@ -30,52 +30,52 @@ class LoyaltyObject extends Google_Collection
     public $smartTapRedemptionValue;
     public $state;
     public $version;
-    protected $classReference;
+
+    public $classReference;
     protected $classReferenceType = LoyaltyClass::class;
     protected $classReferenceDataType = '';
 
-    protected $appLinkData;
+    public $appLinkData;
     protected $appLinkDataType = AppLinkData::class;
     protected $appLinkDataDataType = '';
 
-    protected $barcode;
+    public $barcode;
     protected $barcodeType = Barcode::class;
     protected $barcodeDataType = '';
 
-    protected $imageModulesData;
+    public $imageModulesData;
     protected $imageModulesDataType = ImageModuleData::class;
     protected $imageModulesDataDataType = 'array';
 
-    protected $infoModuleData;
+    public $infoModuleData;
     protected $infoModuleDataType = InfoModuleData::class;
     protected $infoModuleDataDataType = '';
 
-    protected $validTimeInterval;
+    public $validTimeInterval;
     protected $validTimeIntervalType = TimeInterval::class;
     protected $validTimeIntervalDataType = '';
 
-    protected $textModulesData;
+    public $textModulesData;
     protected $textModulesDataType = TextModuleData::class;
     protected $textModulesDataDataType = 'array';
 
-    protected $secondaryLoyaltyPoints;
+    public $secondaryLoyaltyPoints;
     protected $secondaryLoyaltyPointsType = LoyaltyPoints::class;
     protected $secondaryLoyaltyPointsDataType = '';
 
-    public $locations;
-
-    protected $linksModuleData;
+    public $linksModuleData;
     protected $linksModuleDataType = LinksModuleData::class;
     protected $linksModuleDataDataType = '';
 
-    protected $messages;
+    public $messages;
     protected $messagesType = Message::class;
     protected $messagesDataType = 'array';
 
-    protected $loyaltyPoints;
+    public $loyaltyPoints;
     protected $loyaltyPointsType = LoyaltyPoints::class;
     protected $loyaltyPointsDataType = '';
 
+    public $locations;
     protected $locationsType = LatLongPoint::class;
     protected $locationsDataType = 'array';
 

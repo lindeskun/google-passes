@@ -12,7 +12,7 @@ class Barcode extends Google_Model
     public $renderEncoding;
     public $type;
     public $value;
-    protected $showCodeText;
+    public $showCodeText;
     protected $showCodeTextType = LocalizedString::class;
     protected $showCodeTextDataType = '';
 

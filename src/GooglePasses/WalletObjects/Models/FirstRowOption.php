@@ -9,7 +9,7 @@ use GooglePasses\WalletObjects\Collections\FieldSelector;
 class FirstRowOption extends \Google_Model
 {
     public $transitOption;
-    protected $fieldOption;
+    public $fieldOption;
     protected $fieldOptionType = FieldSelector::class;
     protected $fieldOptionDataType = '';
 

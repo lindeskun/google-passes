@@ -8,15 +8,15 @@ use GooglePasses\WalletObjects\Collections\FieldSelector;
 
 class ListTemplateOverride extends \Google_Model
 {
-    protected $firstRowOption;
+    public $firstRowOption;
     protected $firstRowOptionType = FirstRowOption::class;
     protected $firstRowOptionDataType = '';
 
-    protected $secondRowOption;
+    public $secondRowOption;
     protected $secondRowOptionType = FieldSelector::class;
     protected $secondRowOptionDataType = '';
 
-    protected $thirdRowOption;
+    public $thirdRowOption;
     protected $thirdRowOptionType = FieldSelector::class;
     protected $thirdRowOptionDataType = '';
 

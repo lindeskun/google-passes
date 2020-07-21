@@ -9,7 +9,7 @@ class LabelValueRow extends Google_Collection
 {
     protected $collection_key = 'columns';
 
-    protected $columns;
+    public $columns;
     protected $columnsType = LabelValue::class;
     protected $columnsDataType = 'array';
 

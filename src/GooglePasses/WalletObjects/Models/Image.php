@@ -5,7 +5,7 @@ namespace GooglePasses\WalletObjects\Models;
 class Image extends \Google_Model
 {
     public $kind;
-    protected $sourceUri;
+    public $sourceUri;
     protected $sourceUriType = ImageUri::class;
     protected $sourceUriDataType = '';
 

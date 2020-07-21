@@ -8,7 +8,7 @@ use GooglePasses\WalletObjects\Collections\FieldSelector;
 
 class BarcodeSectionDetail extends \Google_Model
 {
-    protected $fieldSelector;
+    public $fieldSelector;
     protected $fieldSelectorType = FieldSelector::class;
     protected $fieldSelectorDataType = '';
 

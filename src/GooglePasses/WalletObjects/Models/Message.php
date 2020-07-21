@@ -9,7 +9,7 @@ class Message extends Google_Model
 {
     public $body;
 
-    protected $displayInterval;
+    public $displayInterval;
     protected $displayIntervalType = TimeInterval::class;
     protected $displayIntervalDataType = '';
 
@@ -17,11 +17,11 @@ class Message extends Google_Model
     public $id;
     public $kind;
 
-    protected $localizedBody;
+    public $localizedBody;
     protected $localizedBodyType = LocalizedString::class;
     protected $localizedBodyDataType = '';
 
-    protected $localizedHeader;
+    public $localizedHeader;
     protected $localizedHeaderType = LocalizedString::class;
     protected $localizedHeaderDataType = '';
 

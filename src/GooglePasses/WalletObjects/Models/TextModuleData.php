@@ -11,11 +11,11 @@ class TextModuleData extends Google_Model
     public $header;
     public $id;
 
-    protected $localizedBody;
+    public $localizedBody;
     protected $localizedBodyType = LocalizedString::class;
     protected $localizedBodyDataType = '';
 
-    protected $localizedHeader;
+    public $localizedHeader;
     protected $localizedHeaderType = LocalizedString::class;
     protected $localizedHeaderDataType = '';
 

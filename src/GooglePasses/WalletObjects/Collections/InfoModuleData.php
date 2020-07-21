@@ -6,7 +6,7 @@ class InfoModuleData extends \Google_Collection
 {
     protected $collection_key = 'labelValueRows';
     public $showLastUpdateTime;
-    protected $labelValueRows;
+    public $labelValueRows;
     protected $labelValueRowsType = LabelValueRow::class;
     protected $labelValueRowsDataType = 'array';
 
