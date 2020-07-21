@@ -6,9 +6,9 @@ use Google_Model;
 
 class LatLongPoint extends Google_Model
 {
-    protected $kind;
-    protected $latitude;
-    protected $longitude;
+    public $kind;
+    public $latitude;
+    public $longitude;
 
     public function setKind($kind)
     {

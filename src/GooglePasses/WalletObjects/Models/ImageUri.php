@@ -8,8 +8,8 @@ use GooglePasses\WalletObjects\Collections\LocalizedString;
 
 class ImageUri extends \Google_Model
 {
-    protected $description;
-    protected $uri;
+    public $description;
+    public $uri;
     protected $localizedDescription;
     protected $localizedDescriptionType = LocalizedString::class;
     protected $localizedDescriptionDataType = '';

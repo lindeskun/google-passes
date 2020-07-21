@@ -6,8 +6,8 @@ use Google_Model;
 
 class FieldReference extends Google_Model
 {
-    protected $dateFormat;
-    protected $fieldPath;
+    public $dateFormat;
+    public $fieldPath;
 
     public function setDateFormat($dateFormat)
     {

@@ -14,27 +14,28 @@ use GooglePasses\WalletObjects\Models\ImageModuleData;
 use GooglePasses\WalletObjects\Models\LatLongPoint;
 use GooglePasses\WalletObjects\Models\Message;
 use GooglePasses\WalletObjects\Models\Review;
+use GooglePasses\WalletObjects\Models\TextModuleData;
 use GooglePasses\WalletObjects\Models\Uri;
 
 class LoyaltyClass extends AbstractClass
 {
-    protected $accountIdLabel;
-    protected $accountNameLabel;
-    protected $allowMultipleUsersPerObject;
-    protected $countryCode;
-    protected $enableSmartTap;
-    protected $hexBackgroundColor;
-    protected $issuerName;
-    protected $kind;
-    protected $multipleDevicesAndHoldersAllowedStatus;
-    protected $programName;
-    protected $redemptionIssuers;
-    protected $reviewStatus;
-    protected $rewardsTier;
-    protected $rewardsTierLabel;
-    protected $secondaryRewardsTier;
-    protected $secondaryRewardsTierLabel;
-    protected $version;
+    public $accountIdLabel;
+    public $accountNameLabel;
+    public $allowMultipleUsersPerObject;
+    public $countryCode;
+    public $enableSmartTap;
+    public $hexBackgroundColor;
+    public $issuerName;
+    public $kind;
+    public $multipleDevicesAndHoldersAllowedStatus;
+    public $programName;
+    public $redemptionIssuers;
+    public $reviewStatus;
+    public $rewardsTier;
+    public $rewardsTierLabel;
+    public $secondaryRewardsTier;
+    public $secondaryRewardsTierLabel;
+    public $version;
 
     protected $callbackOptions;
     protected $callbackOptionsType = CallbackOptions::class;
@@ -69,7 +70,7 @@ class LoyaltyClass extends AbstractClass
     protected $wordMarkDataType = '';
 
     protected $textModulesData;
-//    protected $textModulesDataType = TextModuleData::class;
+    protected $textModulesDataType = TextModuleData::class;
     protected $textModulesDataDataType = 'array';
 
     protected $review;
@@ -414,7 +415,7 @@ class LoyaltyClass extends AbstractClass
     {
         return $this->secondaryRewardsTierLabel;
     }
-    public function setTextModulesData($textModulesData)
+    public function setTextModulesData(TextModuleData $textModulesData)
     {
         $this->textModulesData = $textModulesData;
     }

@@ -6,7 +6,7 @@ use Google_Model;
 
 class TimeInterval extends Google_Model
 {
-    protected $kind;
+    public $kind;
 
     protected $end;
     protected $endType = DateTime::class;

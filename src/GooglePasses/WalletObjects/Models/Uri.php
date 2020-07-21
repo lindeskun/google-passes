@@ -6,10 +6,10 @@ use GooglePasses\WalletObjects\Collections\LocalizedString;
 
 class Uri extends \Google_Model
 {
-    protected $description;
-    protected $id;
-    protected $kind;
-    protected $uri;
+    public $description;
+    public $id;
+    public $kind;
+    public $uri;
     protected $localizedDescription;
     protected $localizedDescriptionType = LocalizedString::class;
     protected $localizedDescriptionDataType = '';

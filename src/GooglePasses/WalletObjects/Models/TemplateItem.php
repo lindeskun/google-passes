@@ -10,7 +10,7 @@ class TemplateItem extends Google_Model
     protected $firstValueType = FieldSelector::class;
     protected $firstValueDataType = '';
 
-    protected $predefinedItem;
+    public $predefinedItem;
 
     protected $secondValue;
     protected $secondValueType = FieldSelector::class;

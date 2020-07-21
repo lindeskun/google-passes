@@ -7,15 +7,15 @@ use GooglePasses\WalletObjects\Collections\LocalizedString;
 
 class Message extends Google_Model
 {
-    protected $body;
+    public $body;
 
     protected $displayInterval;
     protected $displayIntervalType = TimeInterval::class;
     protected $displayIntervalDataType = '';
 
-    protected $header;
-    protected $id;
-    protected $kind;
+    public $header;
+    public $id;
+    public $kind;
 
     protected $localizedBody;
     protected $localizedBodyType = LocalizedString::class;
@@ -25,7 +25,7 @@ class Message extends Google_Model
     protected $localizedHeaderType = LocalizedString::class;
     protected $localizedHeaderDataType = '';
 
-    protected $messageType;
+    public $messageType;
 
     public function setBody($body)
     {

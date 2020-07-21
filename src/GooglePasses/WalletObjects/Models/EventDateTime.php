@@ -6,11 +6,11 @@ use GooglePasses\WalletObjects\Collections\LocalizedString;
 
 class EventDateTime extends \Google_Model
 {
-    protected $doorsOpen;
-    protected $doorsOpenLabel;
-    protected $end;
-    protected $kind;
-    protected $start;
+    public $doorsOpen;
+    public $doorsOpenLabel;
+    public $end;
+    public $kind;
+    public $start;
     protected $customDoorsOpenLabel;
     protected $customDoorsOpenLabelType = LocalizedString::class;
     protected $customDoorsOpenLabelDataType = '';

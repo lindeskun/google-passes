@@ -7,7 +7,7 @@ use GooglePasses\WalletObjects\Collections\LocalizedString;
 
 class LabelValue extends Google_Model
 {
-    protected $label;
+    public $label;
 
     protected $localizedLabel;
     protected $localizedLabelType = LocalizedString::class;

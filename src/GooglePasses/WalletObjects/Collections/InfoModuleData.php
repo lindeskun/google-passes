@@ -5,7 +5,7 @@ namespace GooglePasses\WalletObjects\Collections;
 class InfoModuleData extends \Google_Collection
 {
     protected $collection_key = 'labelValueRows';
-    protected $showLastUpdateTime;
+    public $showLastUpdateTime;
     protected $labelValueRows;
     protected $labelValueRowsType = LabelValueRow::class;
     protected $labelValueRowsDataType = 'array';

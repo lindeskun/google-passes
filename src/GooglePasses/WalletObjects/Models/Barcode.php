@@ -7,11 +7,11 @@ use GooglePasses\WalletObjects\Collections\LocalizedString;
 
 class Barcode extends Google_Model
 {
-    protected $alternateText;
-    protected $kind;
-    protected $renderEncoding;
-    protected $type;
-    protected $value;
+    public $alternateText;
+    public $kind;
+    public $renderEncoding;
+    public $type;
+    public $value;
     protected $showCodeText;
     protected $showCodeTextType = LocalizedString::class;
     protected $showCodeTextDataType = '';

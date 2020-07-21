@@ -4,7 +4,7 @@ namespace GooglePasses\WalletObjects\Models;
 
 class Review extends \Google_Model
 {
-    protected $comments;
+    public $comments;
 
     public function setComments($comments)
     {

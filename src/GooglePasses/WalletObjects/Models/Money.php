@@ -6,9 +6,9 @@ use Google_Model;
 
 class Money extends Google_Model
 {
-    protected $currencyCode;
-    protected $kind;
-    protected $micros;
+    public $currencyCode;
+    public $kind;
+    public $micros;
 
     public function setCurrencyCode($currencyCode)
     {

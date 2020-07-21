@@ -7,7 +7,7 @@ use GooglePasses\WalletObjects\Models\TranslatedString;
 class LocalizedString extends \Google_Collection
 {
     protected $collection_key = 'translatedValues';
-    protected $kind;
+    public $kind;
     protected $defaultValue;
     protected $defaultValueType = TranslatedString::class;
     protected $defaultValueDataType = '';

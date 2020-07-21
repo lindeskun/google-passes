@@ -6,9 +6,9 @@ namespace GooglePasses\WalletObjects\Models;
 
 class TranslatedString extends \Google_Model
 {
-    protected $kind;
-    protected $language;
-    protected $value;
+    public $kind;
+    public $language;
+    public $value;
 
     public function setKind($kind)
     {

@@ -18,18 +18,18 @@ use GooglePasses\WalletObjects\Models\TimeInterval;
 class LoyaltyObject extends Google_Collection
 {
     protected $collection_key = 'textModulesData';
-    protected $accountId;
-    protected $accountName;
-    protected $classId;
-    protected $disableExpirationNotification;
-    protected $hasLinkedDevice;
-    protected $hasUsers;
-    protected $id;
-    protected $kind;
-    protected $linkedOfferIds;
-    protected $smartTapRedemptionValue;
-    protected $state;
-    protected $version;
+    public $accountId;
+    public $accountName;
+    public $classId;
+    public $disableExpirationNotification;
+    public $hasLinkedDevice;
+    public $hasUsers;
+    public $id;
+    public $kind;
+    public $linkedOfferIds;
+    public $smartTapRedemptionValue;
+    public $state;
+    public $version;
     protected $classReference;
     protected $classReferenceType = LoyaltyClass::class;
     protected $classReferenceDataType = '';
@@ -62,7 +62,7 @@ class LoyaltyObject extends Google_Collection
     protected $secondaryLoyaltyPointsType = LoyaltyPoints::class;
     protected $secondaryLoyaltyPointsDataType = '';
 
-    protected $locations;
+    public $locations;
 
     protected $linksModuleData;
     protected $linksModuleDataType = LinksModuleData::class;

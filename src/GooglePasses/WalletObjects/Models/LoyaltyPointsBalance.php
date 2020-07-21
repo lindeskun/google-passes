@@ -7,9 +7,9 @@ use Google_Model;
 
 class LoyaltyPointsBalance extends Google_Model
 {
-    protected $double;
-    protected $int;
-    protected $string;
+    public $double;
+    public $int;
+    public $string;
     protected $money;
     protected $moneyType = Money::class;
     protected $moneyDataType = '';

@@ -6,7 +6,7 @@ use GooglePasses\WalletObjects\Collections\DiscoverableProgramMerchantSignupInfo
 
 class DiscoverableProgram extends \Google_Model
 {
-    protected $state;
+    public $state;
 
     protected $merchantSignupInfo;
     protected $merchantSignupInfoType = DiscoverableProgramMerchantSignupInfo::class;

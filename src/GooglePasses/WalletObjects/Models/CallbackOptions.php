@@ -6,8 +6,8 @@ namespace GooglePasses\WalletObjects\Models;
 
 class CallbackOptions extends \Google_Model
 {
-    protected $updateRequestUrl;
-    protected $url;
+    public $updateRequestUrl;
+    public $url;
 
     public function setUpdateRequestUrl($updateRequestUrl)
     {

@@ -7,9 +7,9 @@ use GooglePasses\WalletObjects\Collections\LocalizedString;
 
 class TextModuleData extends Google_Model
 {
-    protected $body;
-    protected $header;
-    protected $id;
+    public $body;
+    public $header;
+    public $id;
 
     protected $localizedBody;
     protected $localizedBodyType = LocalizedString::class;

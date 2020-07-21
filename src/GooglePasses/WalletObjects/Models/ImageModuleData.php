@@ -6,7 +6,7 @@ use Google_Model;
 
 class ImageModuleData extends Google_Model
 {
-    protected $id;
+    public $id;
     protected $mainImage;
     protected $mainImageType = Image::class;
     protected $mainImageDataType = '';

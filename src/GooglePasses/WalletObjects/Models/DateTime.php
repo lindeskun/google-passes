@@ -6,7 +6,7 @@ use Google_Model;
 
 class DateTime extends Google_Model
 {
-    protected $date;
+    public $date;
 
     public function setDate($date)
     {
