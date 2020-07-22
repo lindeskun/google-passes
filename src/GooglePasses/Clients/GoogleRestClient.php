@@ -99,6 +99,30 @@ class GoogleRestClient
     }
 
     /**
+     * @param LoyaltyClass $loyaltyClass
+     * @return array
+     */
+    public function updateLoyaltyClass(LoyaltyClass $loyaltyClass)
+    {
+        $response = null;
+
+        $loyaltyResource = $this->resourcesFactory->makeLoyaltyClassResource();
+
+        try {
+            $response = $loyaltyResource->update($loyaltyClass->getId(), $loyaltyClass);
+            $response["code"] = 200;
+        } catch (\Google_Service_Exception $gException) {
+            $response = $gException->getErrors();
+            $this->logger->warning((string)$gException);
+            $response["code"] = $gException->getCode();
+        } catch (\Exception $e) {
+            $this->logger->error((string)$e);
+        }
+
+        return $response;
+    }
+
+    /**
      * @param $classId
      * @return array
      */

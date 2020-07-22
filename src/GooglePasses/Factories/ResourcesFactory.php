@@ -26,6 +26,9 @@ class ResourcesFactory
         $this->cache = new SplDoublyLinkedList();
     }
 
+    /**
+     * @return LoyaltyObjectResource
+     */
     public function makeLoyaltyObjectResource()
     {
         if (!$this->cache->offsetExists(self::LOYALTY_OBJECT)) {
@@ -122,6 +125,9 @@ class ResourcesFactory
         return $this->cache->offsetGet(self::LOYALTY_OBJECT);
     }
 
+    /**
+     * @return LoyaltyClassResource
+     */
     public function makeLoyaltyClassResource()
     {
         if (!$this->cache->offsetExists(self::LOYALTY_CLASS)) {
