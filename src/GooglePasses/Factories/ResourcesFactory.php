@@ -3,6 +3,7 @@
 namespace GooglePasses\Factories;
 
 use GooglePasses\Clients\GoogleWalletObjectsService;
+use GooglePasses\Helpers\Settings;
 use GooglePasses\WalletObjects\Resources\LoyaltyClassResource;
 use GooglePasses\WalletObjects\Resources\LoyaltyObjectResource;
 use SplDoublyLinkedList;
@@ -11,6 +12,9 @@ class ResourcesFactory
 {
     const LOYALTY_OBJECT = 'loyaltyobject';
     const LOYALTY_CLASS = 'loyaltyclass';
+
+    const LOYALTY_OBJECT_INDEX = Settings::TYPE_LOYALTY . 1;
+    const LOYALTY_CLASS_INDEX = Settings::TYPE_LOYALTY . 0;
 
     /**
      * @var GoogleWalletObjectsService
@@ -31,7 +35,7 @@ class ResourcesFactory
      */
     public function makeLoyaltyObjectResource()
     {
-        if (!$this->cache->offsetExists(self::LOYALTY_OBJECT)) {
+        if (!$this->cache->offsetExists(self::LOYALTY_OBJECT_INDEX)) {
             $object = new LoyaltyObjectResource(
                 $this->service,
                 GoogleWalletObjectsService::SERVICE_NAME,
@@ -119,10 +123,10 @@ class ResourcesFactory
                     ]
                 ]
             );
-            $this->cache->offsetSet(self::LOYALTY_OBJECT, $object);
+            $this->cache->offsetSet(self::LOYALTY_OBJECT_INDEX, $object);
         }
 
-        return $this->cache->offsetGet(self::LOYALTY_OBJECT);
+        return $this->cache->offsetGet(self::LOYALTY_OBJECT_INDEX);
     }
 
     /**
@@ -130,7 +134,7 @@ class ResourcesFactory
      */
     public function makeLoyaltyClassResource()
     {
-        if (!$this->cache->offsetExists(self::LOYALTY_CLASS)) {
+        if (!$this->cache->offsetExists(self::LOYALTY_CLASS_INDEX)) {
             $object = new LoyaltyClassResource(
                 $this->service,
                 GoogleWalletObjectsService::SERVICE_NAME,
@@ -208,9 +212,9 @@ class ResourcesFactory
                 ]
             );
 
-            $this->cache->offsetSet(self::LOYALTY_CLASS, $object);
+            $this->cache->offsetSet(self::LOYALTY_CLASS_INDEX, $object);
         }
 
-        return $this->cache->offsetGet(self::LOYALTY_CLASS);
+        return $this->cache->offsetGet(self::LOYALTY_CLASS_INDEX);
     }
 }
