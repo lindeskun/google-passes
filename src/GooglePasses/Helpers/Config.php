@@ -8,6 +8,8 @@ use GooglePasses\Exceptions\InvalidArgumentException;
 
 class Config
 {
+    const WALLET_OBJECT_SCOPE = 'https://www.googleapis.com/auth/wallet_object.issuer';
+
     private $issuerId;
 
     private $serviceAccountEmail;
@@ -102,4 +104,12 @@ class Config
     {
         return $this->origins;
     }
+
+    /**
+     * @return array
+     */
+    public function getScopes()
+     {
+         return [self::WALLET_OBJECT_SCOPE];
+     }
 }
