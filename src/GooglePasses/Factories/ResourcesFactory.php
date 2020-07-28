@@ -13,8 +13,8 @@ class ResourcesFactory
     const LOYALTY_OBJECT = 'loyaltyobject';
     const LOYALTY_CLASS = 'loyaltyclass';
 
-    const LOYALTY_OBJECT_INDEX = Settings::TYPE_LOYALTY . 1;
-    const LOYALTY_CLASS_INDEX = Settings::TYPE_LOYALTY . 0;
+    const LOYALTY_OBJECT_INDEX = 1;
+    const LOYALTY_CLASS_INDEX = 0;
 
     /**
      * @var GoogleWalletObjectsService
