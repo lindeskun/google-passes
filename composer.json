@@ -1,0 +1,22 @@
+{
+  "name": "lindeskun/google-passes",
+  "version": "0.1.7",
+  "description": "PHP library for Google Pay Passes",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "lindeskun",
+      "email": "lindeskun@icloud.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "ext-json": "*",
+    "google/apiclient": "^2.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "GooglePasses\\": "src/GooglePasses/"
+    }
+  }
+}
