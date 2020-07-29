@@ -3,10 +3,9 @@
 namespace GooglePasses\Factories;
 
 use GooglePasses\Clients\GoogleWalletObjectsService;
-use GooglePasses\Helpers\Settings;
 use GooglePasses\WalletObjects\Resources\LoyaltyClassResource;
 use GooglePasses\WalletObjects\Resources\LoyaltyObjectResource;
-use SplDoublyLinkedList;
+use SplFixedArray;
 
 class ResourcesFactory
 {
@@ -21,13 +20,13 @@ class ResourcesFactory
      */
     protected $service;
 
-    /** @var SplDoublyLinkedList  */
+    /** @var SplFixedArray  */
     protected $cache;
 
     public function __construct(GoogleWalletObjectsService $service)
     {
         $this->service = $service;
-        $this->cache = new SplDoublyLinkedList();
+        $this->cache = new SplFixedArray(2);
     }
 
     /**
