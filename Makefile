@@ -36,7 +36,6 @@ hooks:
 	chmod +x .git/hooks/post-merge
 
 post-merge: composer
-	cd ./docker/ && docker-compose exec -T php make doctrine-migrations
 
 composer:
 	cd ./docker && docker-compose exec -T php bash -c "composer install"

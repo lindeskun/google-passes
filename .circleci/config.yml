@@ -47,21 +47,14 @@ commands:
         steps:
             - run:
                   name: "Execute: make lint"
-                  command: make phpcs
+                  command: make lint
 
     phpstan:
         description: "Execute PHPStan"
         steps:
             - run:
                   name: "Execute: make analyse"
-                  command: make phpcs
-
-    security:
-        description: "Execute Security"
-        steps:
-            - run:
-                  name: "Execute: make security"
-                  command: make security
+                  command: make analyse
 
 executors:
     php7_4:
@@ -85,44 +78,41 @@ jobs:
         steps:
             - store-composer-cache
 
-    phpcs_7_4:
+    quality_7_4:
         executor: php7_4
         steps:
             - checkout-alpine
             - restore-composer-cache
             - phpcs
-            - analyse
-            - security
+            - phpstan
 
-    phpcs_8_0:
+    quality_8_0:
         executor: php8_0
         steps:
             - checkout-alpine
             - restore-composer-cache
             - phpcs
-            - analyse
-            - security
+            - phpstan
 
-    phpcs_8_1:
+    quality_8_1:
         executor: php8_1
         steps:
             - checkout-alpine
             - restore-composer-cache
             - phpcs
-            - analyse
-            - security
+            - phpstan
 
 workflows:
     version: 2.1
     Code quality:
         jobs:
             - composer
-            - phpcs_7_4:
+            - quality_7_4:
                   requires:
                       - composer
-            - phpcs_8_0:
+            - quality_8_0:
                   requires:
                       - composer
-            - phpcs_8_1:
+            - quality_8_1:
                   requires:
                       - composer
