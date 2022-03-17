@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+    php:
+        build:
+            context: .
+            dockerfile: ./php/Dockerfile
+            args:
+                # It's UID in order to have the same rights on your computer and your docker container
+                UID: "${DOCKER_UID}"
+                TZ: "${TZ}"
+        env_file:
+            - .env
+        volumes:
+            - ..:/var/www/html
+            - xdebug:/xdebug
+        restart: "no"
+
+volumes:
+    xdebug:

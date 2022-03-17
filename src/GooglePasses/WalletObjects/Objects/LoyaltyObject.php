@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace GooglePasses\WalletObjects\Objects;
 
 use Google_Collection;

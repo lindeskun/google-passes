@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace GooglePasses\WalletObjects\Collections;
 
 use GooglePasses\WalletObjects\Models\CardRowTemplateInfo;

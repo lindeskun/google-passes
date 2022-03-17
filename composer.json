@@ -1,21 +1,40 @@
 {
-  "name": "babeuloula/google-passes",
-  "description": "PHP library for Google Pay Passes",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "lindeskun",
-      "email": "lindeskun@icloud.com"
+    "type": "library",
+    "license": "MIT",
+    "name": "babeuloula/google-passes",
+    "description": "PHP library for Google Pay Passes",
+    "prefer-stable": true,
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "lindeskun",
+            "email": "lindeskun@icloud.com"
+        },
+        {
+            "name": "BaBeuloula",
+            "email": "info@babeuloula.fr"
+        }
+    ],
+    "require": {
+        "php": "7.4.*|8.*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "google/apiclient": "^2.12"
+    },
+    "autoload": {
+        "psr-4": {
+            "GooglePasses\\": "src/GooglePasses/"
+        }
+    },
+    "require-dev": {
+        "babeuloula/phpcs": "^1.4",
+        "phpstan/phpstan": "^1.4",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-strict-rules": "^1.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     }
-  ],
-  "minimum-stability": "stable",
-  "require": {
-    "ext-json": "*",
-    "google/apiclient": "^2.4"
-  },
-  "autoload": {
-    "psr-4": {
-      "GooglePasses\\": "src/GooglePasses/"
-    }
-  }
 }

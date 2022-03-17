@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace GooglePasses\WalletObjects\Resources;
 
 use Google_Service_Resource;
@@ -15,10 +17,9 @@ class LoyaltyObjectResource extends Google_Service_Resource
      * format issuer ID.identifier where the former is issued by Google and latter
      * is chosen by you. Your unique identifier should only include alphanumeric
      * characters, '.', '_', or '-'.
-     * @param array $optParams Optional parameters.
-     * @return LoyaltyObject
+     * @param array<mixed> $optParams Optional parameters.
      */
-    public function get($resourceId, $optParams = [])
+    public function get(string $resourceId, array $optParams = []): LoyaltyObject
     {
         $params = ['resourceId' => $resourceId];
         $params = array_merge($params, $optParams);
@@ -30,37 +31,13 @@ class LoyaltyObjectResource extends Google_Service_Resource
      * (loyaltyobject.insert)
      *
      * @param LoyaltyObject $postBody
-     * @param array $optParams Optional parameters.
-     * @return LoyaltyObject
+     * @param array<mixed> $optParams Optional parameters.
      */
-    public function insert(LoyaltyObject $postBody, $optParams = [])
+    public function insert(LoyaltyObject $postBody, array $optParams = []): LoyaltyObject
     {
         $params = ['postBody' => $postBody];
         $params = array_merge($params, $optParams);
         return $this->call('insert', [$params], LoyaltyObject::class);
-    }
-
-    /**
-     * Modifies linked offer objects for the loyalty object with the given ID.
-     * (loyaltyobject.modifylinkedofferobjects)
-     *
-     * @param string $resourceId The unique identifier for an object. This ID must
-     * be unique across all objects from an issuer. This value should follow the
-     * format issuer ID.identifier where the former is issued by Google and latter
-     * is chosen by you. Your unique identifier should only include alphanumeric
-     * characters, '.', '_', or '-'.
-     * @param Google_ModifyLinkedOfferObjectsRequest $postBody
-     * @param array $optParams Optional parameters.
-     * @return LoyaltyObject
-     */
-    public function modifylinkedofferobjects(
-        $resourceId,
-        Google_Service_Walletobjects_ModifyLinkedOfferObjectsRequest $postBody,
-        $optParams = []
-    ) {
-        $params = ['resourceId' => $resourceId, 'postBody' => $postBody];
-        $params = array_merge($params, $optParams);
-        return $this->call('modifylinkedofferobjects', [$params], LoyaltyObject::class);
     }
 
     /**
@@ -73,10 +50,9 @@ class LoyaltyObjectResource extends Google_Service_Resource
      * is chosen by you. Your unique identifier should only include alphanumeric
      * characters, '.', '_', or '-'.
      * @param LoyaltyObject $postBody
-     * @param array $optParams Optional parameters.
-     * @return LoyaltyObject
+     * @param array<mixed> $optParams Optional parameters.
      */
-    public function patch($resourceId, LoyaltyObject $postBody, $optParams = [])
+    public function patch(string $resourceId, LoyaltyObject $postBody, $optParams = []): LoyaltyObject
     {
         $params = ['resourceId' => $resourceId, 'postBody' => $postBody];
         $params = array_merge($params, $optParams);
@@ -93,10 +69,9 @@ class LoyaltyObjectResource extends Google_Service_Resource
      * is chosen by you. Your unique identifier should only include alphanumeric
      * characters, '.', '_', or '-'.
      * @param LoyaltyObject $postBody
-     * @param array $optParams Optional parameters.
-     * @return LoyaltyObject
+     * @param array<mixed> $optParams Optional parameters.
      */
-    public function update($resourceId, LoyaltyObject $postBody, $optParams = [])
+    public function update(string $resourceId, LoyaltyObject $postBody, $optParams = []): LoyaltyObject
     {
         $params = ['resourceId' => $resourceId, 'postBody' => $postBody];
         $params = array_merge($params, $optParams);

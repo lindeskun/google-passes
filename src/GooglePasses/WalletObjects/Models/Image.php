@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace GooglePasses\WalletObjects\Models;
 
 class Image extends \Google_Model

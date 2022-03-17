@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace GooglePasses\WalletObjects\Models;
-
 
 class TranslatedString extends \Google_Model
 {

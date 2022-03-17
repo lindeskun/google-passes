@@ -1,0 +1,128 @@
+version: 2.1
+
+commands:
+    checkout-alpine:
+        description: Install alpine requirements for checkout
+        steps:
+            - run:
+                  name: "Install alpine requirements for checkout"
+                  command: apk add git openssh-client curl make
+            - checkout
+
+    composer-install:
+        description: "Install dependencies"
+        steps:
+            - run:
+                  name: "Execute: composer install"
+                  command: |
+                      if [ ! -f vendor/autoload.php ];then
+                          curl https://getcomposer.org/composer-2.phar --location --silent  --output /usr/bin/composer;
+                          chmod +x /usr/bin/composer;
+                          composer install --no-interaction --no-progress;
+                      fi
+
+    restore-composer-cache:
+        description: "Restore vendor folder from CircleCI cache"
+        steps:
+            - restore_cache:
+                  key: composer-{{ checksum "composer.json" }}
+
+    store-composer-cache:
+        description: "Store vendor folder in CircleCI cache"
+        steps:
+            - checkout-alpine
+            - restore-composer-cache
+            - composer-install
+            - save_cache:
+                  key: composer-{{ checksum "composer.json" }}
+                  paths:
+                      - ./vendor
+            - persist_to_workspace:
+                  root: .
+                  paths:
+                      - vendor
+
+    phpcs:
+        description: "Execute PHPCS"
+        steps:
+            - run:
+                  name: "Execute: make lint"
+                  command: make phpcs
+
+    phpstan:
+        description: "Execute PHPStan"
+        steps:
+            - run:
+                  name: "Execute: make analyse"
+                  command: make phpcs
+
+    security:
+        description: "Execute Security"
+        steps:
+            - run:
+                  name: "Execute: make security"
+                  command: make security
+
+executors:
+    php7_4:
+        docker:
+            - image: php:7.4-cli-alpine
+        working_directory: ~/repository
+
+    php8_0:
+        docker:
+            - image: php:8.0-cli-alpine
+        working_directory: ~/repository
+
+    php8_1:
+        docker:
+            - image: php:8.1-cli-alpine
+        working_directory: ~/repository
+
+jobs:
+    composer:
+        executor: php7_4
+        steps:
+            - store-composer-cache
+
+    phpcs_7_4:
+        executor: php7_4
+        steps:
+            - checkout-alpine
+            - restore-composer-cache
+            - phpcs
+            - analyse
+            - security
+
+    phpcs_8_0:
+        executor: php8_0
+        steps:
+            - checkout-alpine
+            - restore-composer-cache
+            - phpcs
+            - analyse
+            - security
+
+    phpcs_8_1:
+        executor: php8_1
+        steps:
+            - checkout-alpine
+            - restore-composer-cache
+            - phpcs
+            - analyse
+            - security
+
+workflows:
+    version: 2.1
+    Code quality:
+        jobs:
+            - composer
+            - phpcs_7_4:
+                  requires:
+                      - composer
+            - phpcs_8_0:
+                  requires:
+                      - composer
+            - phpcs_8_1:
+                  requires:
+                      - composer

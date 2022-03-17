@@ -1,10 +1,9 @@
 <?php
 
+declare(strict_types=1);
 
-namespace GooglePasses\Exceptions;
-
+namespace GooglePasses\Exception;
 
 class InvalidArgumentException extends \InvalidArgumentException
 {
-
 }

@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace GooglePasses\WalletObjects\Models;
-
 
 use GooglePasses\WalletObjects\Collections\LocalizedString;
 

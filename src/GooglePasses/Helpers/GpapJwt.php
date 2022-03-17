@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2019 Google Inc. All Rights Reserved.
  *
@@ -15,42 +16,49 @@
  * limitations under the License.
  */
 
+declare(strict_types=1);
+
 namespace GooglePasses\Helpers;
 
 use Firebase\JWT\JWT;
 
-class GpapJwt {
-    const AUDIENCE = 'google';
-    const JWT_TYPE = 'savetoandroidpay';
+class GpapJwt
+{
+    public const AUDIENCE = 'google';
+    public const JWT_TYPE = 'savetoandroidpay';
 
-    private $iss;
-    private $origins;
-    private $signingKey;
+    protected string $iss;
+    /** @var string[] */
+    protected array $origins;
+    protected string $signingKey;
 
-    function __construct(
-        $issuer,
-        $signingKey,
-        array $origins = []
-    ){
+    /** @param string[] $origins */
+    public function __construct(string $issuer, string $signingKey, array $origins = [])
+    {
         $this->iss = $issuer;
         $this->origins = $origins;
         $this->signingKey = $signingKey;
     }
 
-    public function generateUnsignedJwt(JwtPayload $payload){
-        $unsignedJwt = array();
-        $unsignedJwt['iss'] = $this->iss;
-        $unsignedJwt['aud'] = self::AUDIENCE;
-        $unsignedJwt['typ'] = self::JWT_TYPE;
-        $unsignedJwt['iat'] = time();
-        $unsignedJwt['payload'] = $payload->toArray();
-        $unsignedJwt['origins'] = $this->origins;
-
-        return $unsignedJwt;
+    /** @return array<string, mixed> */
+    public function generateUnsignedJwt(JwtPayload $payload): array
+    {
+        return [
+            'iss' => $this->iss,
+            'aud' => self::AUDIENCE,
+            'typ' => self::JWT_TYPE,
+            'iat' => time(),
+            'payload' => $payload->toArray(),
+            'origins' => $this->origins,
+        ];
     }
 
-    public function generateSignedJwt(JwtPayload $payload) {
-        $jwtToSign = $this->generateUnsignedJwt($payload);
-        return JWT::encode($jwtToSign, $this->signingKey, "RS256");
+    public function generateSignedJwt(JwtPayload $payload): string
+    {
+        return JWT::encode(
+            $this->generateUnsignedJwt($payload),
+            $this->signingKey,
+            "RS256"
+        );
     }
 }

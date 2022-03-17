@@ -1,35 +1,31 @@
 <?php
 
+declare(strict_types=1);
 
 namespace GooglePasses\Helpers;
 
-
-use GooglePasses\Exceptions\InvalidArgumentException;
+use GooglePasses\Exception\InvalidArgumentException;
 
 class Config
 {
-    const WALLET_OBJECT_SCOPE = 'https://www.googleapis.com/auth/wallet_object.issuer';
+    public const WALLET_OBJECT_SCOPE = 'https://www.googleapis.com/auth/wallet_object.issuer';
 
-    private $issuerId;
-
-    private $serviceAccountEmail;
-
-    private $serviceAccountFilePath;
-
-    private $applicationName;
-
-    private $origins;
-
-    private $serviceAccountCredentials;
+    protected string $issuerId;
+    protected string $serviceAccountEmail;
+    protected string $serviceAccountFilePath;
+    protected string $applicationName;
+    /** @var string[] */
+    protected array $origins;
+    /** @var array<string, mixed> */
+    protected array $serviceAccountCredentials;
 
     public function __construct(
-        $issuerId,
-        $serviceAccountEmail,
-        $serviceAccountFile,
-        $applicationName,
+        string $issuerId,
+        string $serviceAccountEmail,
+        string $serviceAccountFile,
+        string $applicationName,
         array $origins
-    )
-    {
+    ) {
         $this->issuerId = $issuerId;
         $this->serviceAccountEmail = $serviceAccountEmail;
         $this->serviceAccountFilePath = $serviceAccountFile;
@@ -38,78 +34,63 @@ class Config
         $this->loadServiceAccountFile();
     }
 
-    private function loadServiceAccountFile()
+    public function getPrivateKey(): ?string
     {
-        $jsonFile = file_get_contents(realpath($this->serviceAccountFilePath));
-
-        if (empty($jsonFile)) {
-            throw new InvalidArgumentException("Service account file not found or isn't readable");
-        }
-
-        $this->serviceAccountCredentials = json_decode($jsonFile, true);
-
-        if (empty($this->serviceAccountCredentials)) {
-            throw new InvalidArgumentException("Service account file contains invalid JSON");
-        }
-
-        if (!isset($this->serviceAccountCredentials['private_key'])) {
-            throw new InvalidArgumentException("Service account file doesn't contains private key");
-        }
+        return $this->serviceAccountCredentials['private_key'] ?? null;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPrivateKey()
-    {
-        return $this->serviceAccountCredentials['private_key'];
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getApplicationName()
+    public function getApplicationName(): string
     {
         return $this->applicationName;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getServiceAccountEmail()
+    public function getServiceAccountEmail(): string
     {
         return $this->serviceAccountEmail;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getServiceAccountFilePath()
+    public function getServiceAccountFilePath(): string
     {
         return $this->serviceAccountFilePath;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getIssuerId()
+    public function getIssuerId(): string
     {
         return $this->issuerId;
     }
 
-    /**
-     * @return array
-     */
-    public function getOrigins()
+    /** @return string[] */
+    public function getOrigins(): array
     {
         return $this->origins;
     }
 
-    /**
-     * @return array
-     */
-    public function getScopes()
-     {
-         return [self::WALLET_OBJECT_SCOPE];
-     }
+    /** @return string[] */
+    public function getScopes(): array
+    {
+         return [static::WALLET_OBJECT_SCOPE];
+    }
+
+    protected function loadServiceAccountFile(): void
+    {
+        $jsonFile = file_get_contents(realpath($this->serviceAccountFilePath));
+
+        if (false === $jsonFile || 0 === mb_strlen($jsonFile)) {
+            throw new InvalidArgumentException("Service account file not found or isn't readable.");
+        }
+
+        try {
+            $this->serviceAccountCredentials = \json_decode($jsonFile, true, 512, \JSON_THROW_ON_ERROR);
+        } catch (\JsonException $e) {
+            throw new InvalidArgumentException("Service account file contains invalid JSON.");
+        }
+
+        if (0 === \count($this->serviceAccountCredentials)) {
+            throw new InvalidArgumentException("Service account file contains invalid JSON.");
+        }
+
+        if (false === \array_key_exists('private_key', $this->serviceAccountCredentials)) {
+            throw new InvalidArgumentException("Service account file doesn't contains private key.");
+        }
+    }
 }

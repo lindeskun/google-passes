@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace GooglePasses\WalletObjects\Collections;
 
 class InfoModuleData extends \Google_Collection

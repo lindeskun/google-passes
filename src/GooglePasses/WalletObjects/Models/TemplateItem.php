@@ -1,6 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace GooglePasses\WalletObjects\Models;
+
 use Google_Model;
 use GooglePasses\WalletObjects\Collections\FieldSelector;
 

@@ -1,7 +1,8 @@
 <?php
 
-namespace GooglePasses\WalletObjects\Classes;
+declare(strict_types=1);
 
+namespace GooglePasses\WalletObjects\Classes;
 
 use GooglePasses\WalletObjects\Collections\InfoModuleData;
 use GooglePasses\WalletObjects\Collections\LinksModuleData;

@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace GooglePasses\WalletObjects\Resources;
 
-use GooglePasses\WalletObjects\Classes\LoyaltyClass;
 use Google_Service_Resource;
+use GooglePasses\WalletObjects\Classes\LoyaltyClass;
 
 class LoyaltyClassResource extends Google_Service_Resource
 {
@@ -15,10 +17,9 @@ class LoyaltyClassResource extends Google_Service_Resource
      * issuer ID.identifier where the former is issued by Google and latter is
      * chosen by you. Your unique identifier should only include alphanumeric
      * characters, '.', '_', or '-'.
-     * @param array $optParams Optional parameters.
-     * @return LoyaltyClass
+     * @param array<mixed> $optParams Optional parameters.
      */
-    public function get($resourceId, $optParams = [])
+    public function get(string $resourceId, array $optParams = []): LoyaltyClass
     {
         $params = ['resourceId' => $resourceId];
         $params = array_merge($params, $optParams);
@@ -30,10 +31,9 @@ class LoyaltyClassResource extends Google_Service_Resource
      * (loyaltyclass.insert)
      *
      * @param LoyaltyClass $postBody
-     * @param array $optParams Optional parameters.
-     * @return LoyaltyClass
+     * @param array<mixed> $optParams Optional parameters.
      */
-    public function insert(LoyaltyClass $postBody, $optParams = [])
+    public function insert(LoyaltyClass $postBody, array $optParams = []): LoyaltyClass
     {
         $params = ['postBody' => $postBody];
         $params = array_merge($params, $optParams);
@@ -50,10 +50,9 @@ class LoyaltyClassResource extends Google_Service_Resource
      * chosen by you. Your unique identifier should only include alphanumeric
      * characters, '.', '_', or '-'.
      * @param LoyaltyClass $postBody
-     * @param array $optParams Optional parameters.
-     * @return LoyaltyClass
+     * @param array<mixed> $optParams Optional parameters.
      */
-    public function patch($resourceId, LoyaltyClass $postBody, $optParams = [])
+    public function patch(string $resourceId, LoyaltyClass $postBody, array $optParams = []): LoyaltyClass
     {
         $params = ['resourceId' => $resourceId, 'postBody' => $postBody];
         $params = array_merge($params, $optParams);
@@ -70,10 +69,9 @@ class LoyaltyClassResource extends Google_Service_Resource
      * chosen by you. Your unique identifier should only include alphanumeric
      * characters, '.', '_', or '-'.
      * @param LoyaltyClass $postBody
-     * @param array $optParams Optional parameters.
-     * @return LoyaltyClass
+     * @param array<mixed> $optParams Optional parameters.
      */
-    public function update($resourceId, LoyaltyClass $postBody, $optParams = [])
+    public function update(string $resourceId, LoyaltyClass $postBody, array $optParams = []): LoyaltyClass
     {
         $params = ['resourceId' => $resourceId, 'postBody' => $postBody];
         $params = array_merge($params, $optParams);

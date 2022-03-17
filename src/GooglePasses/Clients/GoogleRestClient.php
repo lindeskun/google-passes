@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace GooglePasses\Clients;
 
 use Google_Client;
@@ -11,22 +13,14 @@ use Psr\Log\LoggerInterface;
 
 class GoogleRestClient
 {
-    /** @var Google_Client  */
-    private $client;
-
-    /** @var LoggerInterface */
-    private $logger;
-
-    /** @var GoogleWalletObjectsService */
-    private $service;
-
-    /** @var ResourcesFactory */
-    private $resourcesFactory;
+    protected Google_Client $client;
+    protected LoggerInterface $logger;
+    protected ?GoogleWalletObjectsService $service = null;
+    protected ResourcesFactory $resourcesFactory;
 
     public function __construct(Config $config, LoggerInterface $logger)
     {
         $this->client = new Google_Client();
-
         $this->logger = $logger;
 
         // do OAuth2.0 via service account file.
@@ -39,25 +33,19 @@ class GoogleRestClient
         $this->resourcesFactory = new ResourcesFactory($this->getService());
     }
 
-    /**
-     * @return GoogleWalletObjectsService
-     */
-    public function getService()
+    public function getService(): GoogleWalletObjectsService
     {
-        if (empty($this->service)) {
+        if (false === $this->service instanceof GoogleWalletObjectsService) {
             $this->service = new GoogleWalletObjectsService($this->client);
         }
+
         return $this->service;
     }
 
-    /**
-     * @param LoyaltyClass $loyaltyClass
-     * @return array
-     */
-    public function insertLoyaltyClass(LoyaltyClass $loyaltyClass)
+    /** @return ?array<mixed> */
+    public function insertLoyaltyClass(LoyaltyClass $loyaltyClass): ?array
     {
         $response = null;
-
         $loyaltyResource = $this->resourcesFactory->makeLoyaltyClassResource();
 
         try {
@@ -65,23 +53,19 @@ class GoogleRestClient
             $response["code"] = 200;
         } catch (\Google_Service_Exception $gException) {
             $response = $gException->getErrors();
-            $this->logger->warning((string)$gException);
+            $this->logger->warning((string) $gException);
             $response["code"] = $gException->getCode();
         } catch (\Exception $e) {
-            $this->logger->error((string)$e);
+            $this->logger->error((string) $e);
         }
 
         return $response;
     }
 
-    /**
-     * @param LoyaltyClass $loyaltyClass
-     * @return array
-     */
-    public function patchLoyaltyClass(LoyaltyClass $loyaltyClass)
+    /** @return ?array<mixed> */
+    public function patchLoyaltyClass(LoyaltyClass $loyaltyClass): ?array
     {
         $response = null;
-
         $loyaltyResource = $this->resourcesFactory->makeLoyaltyClassResource();
 
         try {
@@ -89,23 +73,19 @@ class GoogleRestClient
             $response["code"] = 200;
         } catch (\Google_Service_Exception $gException) {
             $response = $gException->getErrors();
-            $this->logger->warning((string)$gException);
+            $this->logger->warning((string) $gException);
             $response["code"] = $gException->getCode();
         } catch (\Exception $e) {
-            $this->logger->error((string)$e);
+            $this->logger->error((string) $e);
         }
 
         return $response;
     }
 
-    /**
-     * @param LoyaltyClass $loyaltyClass
-     * @return array
-     */
-    public function updateLoyaltyClass(LoyaltyClass $loyaltyClass)
+    /** @return ?array<mixed> */
+    public function updateLoyaltyClass(LoyaltyClass $loyaltyClass): ?array
     {
         $response = null;
-
         $loyaltyResource = $this->resourcesFactory->makeLoyaltyClassResource();
 
         try {
@@ -113,23 +93,19 @@ class GoogleRestClient
             $response["code"] = 200;
         } catch (\Google_Service_Exception $gException) {
             $response = $gException->getErrors();
-            $this->logger->warning((string)$gException);
+            $this->logger->warning((string) $gException);
             $response["code"] = $gException->getCode();
         } catch (\Exception $e) {
-            $this->logger->error((string)$e);
+            $this->logger->error((string) $e);
         }
 
         return $response;
     }
 
-    /**
-     * @param $classId
-     * @return array
-     */
-    public function getLoyaltyClass($classId)
+    /** @return ?array<mixed> */
+    public function getLoyaltyClass(string $classId): ?array
     {
         $response = null;
-
         $loyaltyResource = $this->resourcesFactory->makeLoyaltyClassResource();
 
         try {
@@ -137,23 +113,19 @@ class GoogleRestClient
             $response["code"] = 200;
         } catch (\Google_Service_Exception $gException) {
             $response = $gException->getErrors();
-            $this->logger->warning((string)$gException);
+            $this->logger->warning((string) $gException);
             $response["code"] = $gException->getCode();
         } catch (\Exception $e) {
-            $this->logger->error((string)$e);
+            $this->logger->error((string) $e);
         }
 
         return $response;
     }
 
-    /**
-     * @param $objectId
-     * @return array
-     */
-    public function getLoyaltyObject($objectId)
+    /** @return ?array<mixed> */
+    public function getLoyaltyObject(string $objectId): ?array
     {
         $response = null;
-
         $loyaltyResource = $this->resourcesFactory->makeLoyaltyObjectResource();
 
         try {
@@ -161,23 +133,19 @@ class GoogleRestClient
             $response["code"] = 200;
         } catch (\Google_Service_Exception $gException) {
             $response = $gException->getErrors();
-            $this->logger->warning((string)$gException);
+            $this->logger->warning((string) $gException);
             $response["code"] = $gException->getCode();
         } catch (\Exception $e) {
-            $this->logger->error((string)$e);
+            $this->logger->error((string) $e);
         }
 
         return $response;
     }
 
-    /**
-     * @param LoyaltyObject $loyaltyObject
-     * @return array
-     */
-    public function insertLoyaltyObject(LoyaltyObject $loyaltyObject)
+    /** @return ?array<mixed> */
+    public function insertLoyaltyObject(LoyaltyObject $loyaltyObject): ?array
     {
         $response = null;
-
         $loyaltyResource = $this->resourcesFactory->makeLoyaltyObjectResource();
 
         try {
@@ -185,10 +153,10 @@ class GoogleRestClient
             $response["code"] = 200;
         } catch (\Google_Service_Exception $gException) {
             $response = $gException->getErrors();
-            $this->logger->warning((string)$gException);
+            $this->logger->warning((string) $gException);
             $response["code"] = $gException->getCode();
         } catch (\Exception $e) {
-            $this->logger->error((string)$e);
+            $this->logger->error((string) $e);
         }
 
         return $response;
