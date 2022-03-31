@@ -161,4 +161,23 @@ class GoogleRestClient
 
         return $response;
     }
+
+    public function updateLoyaltyObject(string $objectId, LoyaltyObject $loyaltyObject)
+    {
+        $response = null;
+        $loyaltyResource = $this->resourcesFactory->makeLoyaltyObjectResource();
+
+        try {
+            $response = $loyaltyResource->update($objectId, $loyaltyObject);
+            $response["code"] = 200;
+        } catch (\Google_Service_Exception $gException) {
+            $response = $gException->getErrors();
+            $this->logger->warning((string) $gException);
+            $response["code"] = $gException->getCode();
+        } catch (\Exception $e) {
+            $this->logger->error((string) $e);
+        }
+
+        return $response;
+    }
 }

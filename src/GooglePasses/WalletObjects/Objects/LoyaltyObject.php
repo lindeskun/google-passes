@@ -10,6 +10,7 @@ use GooglePasses\WalletObjects\Collections\InfoModuleData;
 use GooglePasses\WalletObjects\Collections\LinksModuleData;
 use GooglePasses\WalletObjects\Models\AppLinkData;
 use GooglePasses\WalletObjects\Models\Barcode;
+use GooglePasses\WalletObjects\Models\Image;
 use GooglePasses\WalletObjects\Models\ImageModuleData;
 use GooglePasses\WalletObjects\Models\LatLongPoint;
 use GooglePasses\WalletObjects\Models\LoyaltyPoints;
@@ -80,6 +81,10 @@ class LoyaltyObject extends Google_Collection
     public $locations;
     protected $locationsType = LatLongPoint::class;
     protected $locationsDataType = 'array';
+
+    public $heroImage;
+    protected $heroImageType = Image::class;
+    protected $heroImageDataType = '';
 
     public function setAccountId($accountId)
     {
@@ -272,5 +277,13 @@ class LoyaltyObject extends Google_Collection
     public function getVersion()
     {
         return $this->version;
+    }
+    public function setHeroImage(Image $heroImage)
+    {
+        $this->heroImage = $heroImage;
+    }
+    public function getHeroImage()
+    {
+        return $this->heroImage;
     }
 }
