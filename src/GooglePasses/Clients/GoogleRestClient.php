@@ -162,13 +162,13 @@ class GoogleRestClient
         return $response;
     }
 
-    public function updateLoyaltyObject(string $objectId, LoyaltyObject $loyaltyObject)
+    public function updateLoyaltyObject(LoyaltyObject $loyaltyObject)
     {
         $response = null;
         $loyaltyResource = $this->resourcesFactory->makeLoyaltyObjectResource();
 
         try {
-            $response = $loyaltyResource->update($objectId, $loyaltyObject);
+            $response = $loyaltyResource->update($loyaltyObject->getId(), $loyaltyObject);
             $response["code"] = 200;
         } catch (\Google_Service_Exception $gException) {
             $response = $gException->getErrors();
